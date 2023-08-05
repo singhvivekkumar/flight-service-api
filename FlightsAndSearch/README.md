@@ -5,7 +5,7 @@
 - Execute `npm install` on the same path as of your directory of the download project
 - Create a `.env` file in the root directory and add the following env variable
 	- PORT=3000
--Inside the `src/config` folder create a new file `config.json` and add the following code
+- Inside the `src/config` folder create a new file `config.json` and add the following code
 ```
 {
   "development": {
@@ -17,4 +17,5 @@
   }
 }
 ```
+- Once you have added your db config as listed above, go to the src folder from your terminal and execute `npm sequelize db:create`
 
