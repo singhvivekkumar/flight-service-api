@@ -12,6 +12,7 @@ const server = async () => {
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({extended: true}));
 
+	//route the app
 	app.use('/api', ApiRoute);
 
 	//starting point

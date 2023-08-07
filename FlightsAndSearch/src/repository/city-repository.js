@@ -31,7 +31,11 @@ class CityRepository {
 				where: {
 					id: cityId
 				}
-			})
+			});
+			// console.log(cityId, data);
+			// const city = await City.findByPk(cityId);
+			// city.name = data.name;
+			// await city.save();
 			return city;
 		} catch (error) {
 			console.log("-------Something went wrong---------");
@@ -39,15 +43,17 @@ class CityRepository {
 		}
 	}
 
+
 	async getCity(cityId) {
 		try {
-			const city = await City.findByPk(cityId);
-			return city
+			const city = await City?.findByPk(cityId);
+			return city;
 		} catch (error) {
 			console.log("-------Something went wrong---------");
 			throw{error};
 		}
 	}
+	
 }
 
 module.exports = CityRepository;
