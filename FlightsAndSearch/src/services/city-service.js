@@ -45,9 +45,9 @@ class CityService {
 		}
 	}
 
-	async getAllCity() {
+	async getAllCity(fliter) {
 		try {
-			const cities = await this.cityRepository.getAllCity();
+			const cities = await this.cityRepository.getAllCity({name : fliter.name});
 			return cities;
 		} catch (error) {
 			console.log("<<<<<<< Something went wrong in city service >>>>>>>");
