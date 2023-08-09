@@ -23,12 +23,13 @@ const server = async () => {
 
 		//synchronization
 		// db.sequelize.sync({ alter: true});
-		const city = await City.findOne({
-			where: {
-				id: 9
-			}
-		});
-		console.log(city);
+		// const city = await City.findOne({
+		// 	where: {
+		// 		id: 9
+		// 	}
+		// });
+		// console.log(city);
+		
 	})
 }
 
