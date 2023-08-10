@@ -3,3 +3,7 @@ function compareTime(initialDateTime, endDateTime) {
 	let dateTime2 = Date(endDateTime);
 	return dateTime1.getTime() > dateTime2.getTime();
 }
+
+module.exports = {
+	compareTime
+}
