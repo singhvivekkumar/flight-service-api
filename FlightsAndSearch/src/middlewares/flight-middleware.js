@@ -1,4 +1,6 @@
+const { ClientErrorCode } = require('../utils/error-code')
 // actually it is a contract of API
+
 const validateCreateFlight = ( req, res, next ) => {
 	if (
 		!req.body.flightNumber ||
@@ -10,7 +12,7 @@ const validateCreateFlight = ( req, res, next ) => {
 		!req.body.price 
 		) {
 		// if any of the body params is missing we come inside if
-		return res.status(400).json({
+		return res.status(ClientErrorCode.BAD_REQUEST).json({
 			data: {},
 			success: false,
 			message:  'Invalid request body for create flight',
@@ -18,4 +20,8 @@ const validateCreateFlight = ( req, res, next ) => {
 		})
 	}
 	next();
+}
+
+module.exports = {
+	validateCreateFlight
 }

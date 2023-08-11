@@ -1,4 +1,4 @@
-const { Airplane } = require('../models/airplane').default;
+const { Airplane } = require('../models/airplane');
 
 class AirplaneRepository {
 
@@ -24,9 +24,7 @@ class AirplaneRepository {
 
 	async getAirplane(data) {
 		try {
-			console.log(Airplane)
 			const airplane = await Airplane.findByPk(data);
-
 			return airplane;
 		} catch (error) {
 			console.log("-----Something is went wrong in Airplane repository-----");
