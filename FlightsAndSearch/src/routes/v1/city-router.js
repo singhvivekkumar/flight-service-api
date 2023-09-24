@@ -15,4 +15,4 @@ CityRouter.get('/:id', cityControllers.get);
 CityRouter.get('/', cityControllers.getAll);
 CityRouter.delete('/:id', cityControllers.destroy);
 
-module.exports = CityRouter;
+module.exports = CityRouter; 

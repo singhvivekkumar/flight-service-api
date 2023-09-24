@@ -11,7 +11,7 @@ const validateCreateFlight = ( req, res, next ) => {
 		!req.body.departureTime ||
 		!req.body.price 
 		) {
-		// if any of the body params is missing we come inside if
+		// if any of the body params is missing we come
 		return res.status(ClientErrorCode.BAD_REQUEST).json({
 			data: {},
 			success: false,
@@ -19,6 +19,7 @@ const validateCreateFlight = ( req, res, next ) => {
 			err: 'Missing mandatory properties to create a flight'
 		})
 	}
+
 	next();
 }
 
