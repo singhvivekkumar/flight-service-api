@@ -1,16 +1,19 @@
 const express = require('express');
-const { PORT } = require('./config/serverConfig');
 const bodyParser = require('body-parser');
+
+// custom file
+const { PORT } = require('./config/serverConfig');
 // const CityRepository = require('./repository/city-repository');
 const ApiRoute = require('./routes/index');
 const db = require('./models/index');
 const { City , Airport } = require('./models/index');
 
+// this is for clearner code 
 const server = async () => {
 
 	const app = express();
 
-	//middleware
+	//middleware for the app
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({extended: true}));
 
