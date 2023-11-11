@@ -5,10 +5,12 @@ const { City } = require('../models/index');
 class CityRepository {
 	async createCity({name}) {
 		try {
+			// city is promise means it may return resolve or reject 
+			// resolve return city otherwise catch error
 			const city = await City.create({name});
 			return city;
 		} catch (error) {
-			console.log("-------Something went wrong---------");
+			console.log("-------Something went wrong in repo---------");
 			throw{error};
 		}
 	}
