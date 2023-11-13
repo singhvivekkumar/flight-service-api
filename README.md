@@ -70,5 +70,15 @@
 
 - how can we interact with models
   all the interaction should happen to the model through repositry layer.
-- how will we get access to models.
+  in this layer we write all the operation on database.
+
+### seeders
+  - What is seeders in backend folders and why we need it?
+    seeding a database is a process in which an initial set of data is provided to a database when it is being installed.
+  - How to create seeder files.
+  -for more https://medium.com/@darrand37/migrations-and-seeding-made-easy-in-node-js-using-sequelize-80bd13620b45
+
+  ```npx sequalize seed:generate --name add-airports```
+  
+  ```npx sequalize db:seed:all```
   

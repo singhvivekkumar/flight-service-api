@@ -30,12 +30,14 @@ class CityRepository {
 
 	async updateCity(cityId, data) {
 		try {
+			// it does not return updated city object
 			const city = await City.update( data, {
 				where: {
 					id: cityId
 				}
 			});
 			// console.log(cityId, data);
+			// it will return updated city object
 			// const city = await City.findByPk(cityId);
 			// city.name = data.name;
 			// await city.save();
@@ -58,6 +60,7 @@ class CityRepository {
 
 	async getAllCity(fliter) {
 		try {
+			// fliter city on based on character
 			if (fliter.name) {
 				const cities = await City.findAll({
 					where:{
