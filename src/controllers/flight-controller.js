@@ -6,6 +6,7 @@ const create = async ( req , res ) => {
 	try {
 		const flightRequestData = {
 			// It always good to select which data passes to our service layer
+			// because in middleware we parse request which is mandatory not stop extra data which can float our app
 			flightNumber: req.body.flightNumber,
 			airplaneId: req.body.airplaneId,
 			departureAirportId: req.body.departureAirportId,

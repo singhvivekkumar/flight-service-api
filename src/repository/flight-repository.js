@@ -45,6 +45,7 @@ class FlightRepository {
 		// 		]
 		// 	});
 		// }
+		Object.assign(filter, {[Op.and]: priceFilter});
 
 		console.log(filter);
 		return filter;
