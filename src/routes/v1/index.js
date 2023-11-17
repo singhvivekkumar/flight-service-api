@@ -6,7 +6,7 @@ const city = require('./city-router');
 const flight = require('./flight-router')
 
 v1Router.use('/city', city);
-v1Router.use('/flight', flight);
+v1Router.use('/flights', flight);
 
 module.exports = v1Router;
 

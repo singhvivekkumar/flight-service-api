@@ -1,4 +1,4 @@
-const { Flights } = require('../models/flights')
+const { Flights } = require('../models/index')
 
 class FlightRepository {
 
@@ -22,9 +22,22 @@ class FlightRepository {
 		}
 	}
 
-	async getFlight(data) {
+	async getFlight(flightId) {
 		try {
-			const flight = await Flights.findByPk(data);
+			const flight = await Flights.findByPk(flightId);
+			return flight;
+		} catch (error) {
+			console.log("-----Something is went wrong in flight repository-----");
+			throw {error};
+		}
+	}
+
+	async getAllFlights(filter) {
+		try {
+			const flightObject = await this.createFilter(filter);
+			const flight = await Flights.findAll({
+				where: flightObject
+			})
 			return flight;
 		} catch (error) {
 			console.log("-----Something is went wrong in flight repository-----");

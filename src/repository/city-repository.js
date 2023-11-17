@@ -23,7 +23,7 @@ class CityRepository {
 				}
 			})
 		} catch (error) {
-			console.log("-------Something went wrong---------");
+			console.log("-------Something went wrong in city repository---------");
 			throw{error};
 		}
 	}
@@ -43,17 +43,18 @@ class CityRepository {
 			// await city.save();
 			return city;
 		} catch (error) {
-			console.log("-------Something went wrong---------");
+			console.log("-------Something went wrong in city repository---------");
 			throw{error};
 		}
 	}
 
 	async getCity(cityId) {
 		try {
+			// console.log(typeof cityId); --> string
 			const city = await City.findByPk(cityId);
 			return city;
 		} catch (error) {
-			console.log("-------Something went wrong---------");
+			console.log("-------Something went wrong in city repository---------");
 			throw{error};
 		}
 	}
@@ -74,7 +75,7 @@ class CityRepository {
 			const cities = await City.findAll();
 			return cities;
 		} catch (error) {
-			console.log("-------Something went wrong---------");
+			console.log("-------Something went wrong in city repository---------");
 			throw{error};
 		}
 	}
