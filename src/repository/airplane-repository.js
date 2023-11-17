@@ -26,7 +26,6 @@ class AirplaneRepository {
 		try {
 			console.log(Airplane);
 			const airplane = await Airplane.findByPk(airplaneId);
-			console.log(airplane);
 			return airplane;
 		} catch (error) {
 			console.log("-----Something is went wrong in Airplane repository-----");
