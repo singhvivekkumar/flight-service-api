@@ -5,10 +5,6 @@ const {FlightMiddleware} = require('../../middlewares/index');
 
 const flightRouter = express.Router();
 
-// flightRouter.post('/flight', flightController.create);
-// flightRouter.patch('/flight/:id', flightController.update);
-// flightRouter.get('/flight/:id', flightController.get);
-// flightRouter.delete('/flight/:id', flightController.destroy);
 
 flightRouter.post('/', FlightMiddleware.validateCreateFlight, flightController.create);
 flightRouter.patch('/:id', flightController.update);

@@ -94,6 +94,21 @@ class FlightRepository {
 		}
 	}
 
+	async updateFlights(flightId, data) {
+		try {
+			console.log(flightId, data)
+			await Flights.update(data,{
+				where:{
+					id: flightId
+				}
+			});
+			return true;
+		} catch (error) {
+			console.log("-----Something is went wrong in flight repository while updating-----");
+			throw {error};
+		}
+	}
+
 	async destroyFlight(data) {
 		try {
 			const flight = await Flights.destroy(data);
