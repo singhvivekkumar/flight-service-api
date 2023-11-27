@@ -11,6 +11,21 @@ class FlightRepository {
 		if (data.departureAirportId) {
 			filter.departureAirportId = data.departureAirportId;
 		}
+
+		let dateFilter = [];
+		if (data.departureTime) {
+			dateFilter.push({
+				departureTime: {
+					[Op.lte]: data.departureTime
+				}
+			});
+			dateFilter.push({
+				departureTime: {
+					[Op.gte]: new Date().toISOString()
+				}
+			});
+		}
+		Object.assign(filter, {[Op.and]: dateFilter});
 		
 		let priceFilter = [];
 		if (data.minPrice) {
@@ -45,9 +60,11 @@ class FlightRepository {
 		// 		]
 		// 	});
 		// }
-		Object.assign(filter, {[Op.and]: priceFilter});
+		// Object.assign(filter, {[Op.and]: priceFilter});
 
-		console.log(filter);
+		console.log("dateFilter",dateFilter);
+		console.log("priceFliter",priceFilter);
+		console.log("filter",filter);
 		return filter;
 	}
 
@@ -84,6 +101,7 @@ class FlightRepository {
 	async getAllFlights(filter) {
 		try {
 			const flightObject = await this.#createFilter(filter);
+			console.log("flightObject",flightObject);
 			const flight = await Flights.findAll({
 				where: flightObject
 			})

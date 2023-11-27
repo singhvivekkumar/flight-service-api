@@ -3,10 +3,8 @@ const bodyParser = require('body-parser');
 
 // custom file
 const { PORT } = require('./config/serverConfig');
-// const CityRepository = require('./repository/city-repository');
 const ApiRoute = require('./routes/index');
-const db = require('./models/index');
-const { City , Airport } = require('./models/index');
+// const db = require('./models/index');
 
 // this is for clearner code 
 const server = async () => {
@@ -18,6 +16,7 @@ const server = async () => {
 	app.use(bodyParser.urlencoded({extended: true}));
 
 	//route the app
+	app.use('/search/api', ApiRoute);
 	app.use('/api', ApiRoute);
 
 	//starting point
@@ -26,13 +25,6 @@ const server = async () => {
 
 		//synchronization
 		// db.sequelize.sync({ alter: true});
-		// const city = await City.findOne({
-		// 	where: {
-		// 		id: 9
-		// 	}
-		// });
-		// console.log(city);
-		
 	})
 }
 
