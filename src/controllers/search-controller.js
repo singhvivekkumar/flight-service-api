@@ -1,10 +1,10 @@
-const { FlightService } = require('../services/index');
+const { SearchService } = require('../services/index');
 
-const flightService = new FlightService();
+const searchService = new SearchService();
 
-const getAll = async ( req , res ) => {
+const getAllFlights = async ( req , res ) => {
 	try {
-		const flight = await flightService.getAllFlightData(req.query);
+		const flight = await searchService.searchFlight(req.query);
 		return res.status(200).json({
 			data: flight,
 			success: true,
@@ -25,5 +25,5 @@ const getAll = async ( req , res ) => {
 
 
 module.exports = {
-	getAll,
+	getAllFlights
 }

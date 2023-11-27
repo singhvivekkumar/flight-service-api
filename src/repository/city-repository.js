@@ -59,14 +59,14 @@ class CityRepository {
 		}
 	}
 
-	async getAllCity(fliter) {
+	async getAllCity(name) {
 		try {
 			// fliter city on based on character
-			if (fliter.name) {
-				const cities = await City.findAll({
+			if (name) {
+				const cities = await City.findOne({
 					where:{
 						name: {
-							[Op.startsWith]: fliter.name
+							[Op.substring]: name
 						}
 					}
 				});
