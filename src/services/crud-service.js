@@ -1,5 +1,3 @@
-const { Model } = require("sequelize");
-
 class CurdService {
 
 	constructor(repository) {

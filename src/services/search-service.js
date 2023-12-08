@@ -1,11 +1,12 @@
 const { AirportRepository} = require('../repository/index');
+const AirportService = require('./airport-service');
 const FlightService = require('./flight-service');
 
 class SearchService {
 
 	constructor () {
 		// this.flightRepository = new FlightRepository();
-		this.airportRepository = new AirportRepository();
+		this.airportService = new AirportService();
 		this.flightService = new FlightService();
 	}
 
@@ -13,14 +14,14 @@ class SearchService {
 		try {
 			let flights = null;
 			if ( data.departureAirport && data.arrivalAirport ) {
-				const departureAirport = await this.airportRepository.getAllByName(data.departureAirport);
-				const arrivalAirport = await this.airportRepository.getAllByName(data.arrivalAirport);
-				console.log("done", departureAirport.id, arrivalAirport.id);
+				const departureAirport = await this.airportService.getAirportByName(data.departureAirport)
+				const arrivalAirport = await this.airportService.getAirportByName(data.arrivalAirport)
+				console.log("airport id 1 : ", departureAirport.id, "airport id 2 : ", arrivalAirport.id);
 				const payload = {
 					departureAirportId: departureAirport.id,
 					arrivalAirportId: arrivalAirport.id
 				}
-				flights = await this.flightService.getAllFlightData(payload)
+				flights = await this.flightService.getAllFlightData(payload);
 			} else {
 				throw { error : 'please provide both arrival airport and departure airport'};
 			}

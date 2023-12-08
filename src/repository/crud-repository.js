@@ -48,22 +48,6 @@ class CrudRepository {
 		}
 	}
 
-	async getAllByName(name) {
-		try {
-			const result = await this.model.findAll({
-				where:{
-					name: {
-						[Op.substring]: name
-					}
-				}
-			});
-			return result;
-		} catch (error) {
-			console.log('something went wront in curd model');
-			throw error
-		}
-	}
-
 	async update(modelId, data) {
 		try {
 			const result = await this.model.update(data, {

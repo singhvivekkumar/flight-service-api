@@ -17,6 +17,7 @@ class AirportRepository extends CrudRepository {
 					}
 				}
 			});
+			console.log(airport)
 			return airport;
 		} catch (error) {
 			console.log('something went wront in curd model');

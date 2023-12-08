@@ -62,9 +62,9 @@ class FlightRepository {
 		// }
 		// Object.assign(filter, {[Op.and]: priceFilter});
 
-		console.log("dateFilter",dateFilter);
-		console.log("priceFliter",priceFilter);
-		console.log("filter",filter);
+		// console.log("dateFilter",dateFilter);
+		// console.log("priceFliter",priceFilter);
+		// console.log("filter",filter);
 		return filter;
 	}
 
