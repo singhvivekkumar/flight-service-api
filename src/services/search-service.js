@@ -16,12 +16,16 @@ class SearchService {
 			if ( data.departureAirport && data.arrivalAirport ) {
 				const departureAirport = await this.airportService.getAirportByName(data.departureAirport)
 				const arrivalAirport = await this.airportService.getAirportByName(data.arrivalAirport)
-				console.log("airport id 1 : ", departureAirport.id, "airport id 2 : ", arrivalAirport.id);
-				const payload = {
-					departureAirportId: departureAirport.id,
-					arrivalAirportId: arrivalAirport.id
+				if (departureAirport && arrivalAirport) {
+					console.log("airport id 1 : ", departureAirport.id, "airport id 2 : ", arrivalAirport.id);
+					const payload = {
+						departureAirportId: departureAirport.id,
+						arrivalAirportId: arrivalAirport.id
+					}
+					flights = await this.flightService.getAllFlightData(payload);
+				} else {
+					throw { error : `No data found like ${data.departureAirport} or may ${data.arrivalAirport}`};
 				}
-				flights = await this.flightService.getAllFlightData(payload);
 			} else {
 				throw { error : 'please provide both arrival airport and departure airport'};
 			}
