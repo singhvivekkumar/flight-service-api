@@ -6,6 +6,7 @@ const getAllFlights = async ( req , res ) => {
 	try {
 		const flight = await searchService.searchFlight(req.query);
 		return res.status(200).json({
+			fromCache: false,
 			data: flight,
 			success: true,
 			err: {},
@@ -14,6 +15,7 @@ const getAllFlights = async ( req , res ) => {
 	} catch (error) {
 		console.log(error);
 		return res.status(500).json({
+			fromCache: false,
 			data: {},
 			success: false,
 			err: error,
